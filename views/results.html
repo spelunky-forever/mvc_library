@@ -2,6 +2,12 @@
 <html>
 <head>
     <title>Search Results</title>
+    <style>
+        .book-id {
+            color: #d9534f;
+            margin-left: 0.8rem;
+        }
+    </style>
 </head>
 <body>
     <h1>Search Results for "{{ keyword }}"</h1>
@@ -9,7 +15,10 @@
     {% if books %}
         <ul>
         {% for book in books %}
-            <li><strong>{{ book.title }}</strong> — {{ book.author }}</li>
+            <li>
+                <strong>{{ book.title }}</strong> — {{ book.author }}
+                <span class="book-id">id: <span class="id-num">{{ book.bid }}</span></span>
+            </li>
         {% endfor %}
         </ul>
     {% else %}

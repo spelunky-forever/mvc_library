@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Result</title>
+    <style>
+        .book-id {
+            color: #d9534f;
+            margin-left: 0.8rem;
+        }
+        .mark{
+            size: 3rem;
+            color:black
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Result for "{{ id }}"</h1>
+
+    {% if deleted_book %}
+        <ul>
+            <li>
+                <div class="mark">Successfully delete the book:</div>
+                <strong>{{ deleted_book.title }}</strong> — {{ deleted_book.author }}
+                <span class="book-id">id: <span class="id-num">{{ book.bid }}</span></span>
+            </li>
+        </ul>
+    {% else %}
+        <p class="mark">No such book id.</p>
+    {% endif %}
+
+    <a href="/">Back to Search</a>
+    <a href="/add">Add a new book</a>
+</body>
+</html>
