@@ -14,14 +14,14 @@
     </style>
 </head>
 <body>
-    <h1>Delete Result for "{{ id }}"</h1>
+    <h1>Delete Result for id="{{ id }}"</h1>
 
     {% if deleted_book %}
         <ul>
             <li>
                 <div class="mark">Successfully delete the book:</div>
                 <strong>{{ deleted_book.title }}</strong> — {{ deleted_book.author }}
-                <span class="book-id">id: <span class="id-num">{{ book.bid }}</span></span>
+                <span class="book-id">id: <span class="id-num">{{ deleted_book.bid }}</span></span>
             </li>
         </ul>
     {% else %}
@@ -29,6 +29,5 @@
     {% endif %}
 
     <a href="/">Back to Search</a>
-    <a href="/add">Add a new book</a>
 </body>
 </html>

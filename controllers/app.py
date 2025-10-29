@@ -7,7 +7,7 @@ from models.library import LibraryModel
 
 app = Flask(__name__, template_folder="../views")
 library = LibraryModel()
-# Initialized library
+# Initialize library
 library.add_book("The Great Gatsby", "F. Scott Fitzgerald")
 library.add_book("To Kill a Mockingbird", "Harper Lee")
 library.add_book("1984", "George Orwell")
@@ -49,6 +49,16 @@ def delete_book():
         deleted_book = library.delete_book(bid)
         return render_template("delete_result.html",deleted_book=deleted_book ,id=bid)
     return render_template("delete_book.html")
+
+@app.route("/adjust_content", methods=["GET", "POST"])
+def adjust_content():
+    if request.method == "POST":
+        bid = request.form.get("id")
+        new_title = request.form.get("new_title")
+        new_author = request.form.get("new_author")
+        adjusted_book = library.adjust_content(new_title, new_author, bid)
+        return render_template("adjust_result.html",adjusted_book=adjusted_book ,id=bid)
+    return render_template("adjust_content.html")
     
 
 if __name__ == "__main__":

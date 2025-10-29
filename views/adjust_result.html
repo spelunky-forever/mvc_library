@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Result</title>
+    <style>
+        .book-id {
+            color: #d9534f;
+            margin-left: 0.8rem;
+        }
+        .mark{
+            size: 3rem;
+            color:black
+        }
+    </style>
+</head>
+<body>
+    <h1>Adjust Result for id="{{ id }}"</h1>
+
+    {% if adjusted_book %}
+        <ul>
+            <li>
+                <div class="mark">Successfully adjust the book from:</div>
+                <strong>{{ adjusted_book[0].title }}</strong> — {{ adjusted_book[0].author }}
+                <span class="book-id">id: <span class="id-num">{{ adjusted_book[0].bid }}</span></span>
+                <div class="mark">to:</div>
+                <strong>{{ adjusted_book[1].title }}</strong> — {{ adjusted_book[1].author }}
+                <span class="book-id">id: <span class="id-num">{{ adjusted_book[1].bid }}</span></span>
+            </li>
+        </ul>
+    {% else %}
+        <p class="mark">No such book id.</p>
+    {% endif %}
+
+    <a href="/">Back to Search</a>
+</body>
+</html>

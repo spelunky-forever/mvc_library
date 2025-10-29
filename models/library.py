@@ -44,7 +44,7 @@ class LibraryModel:
             if book.bid==bid:
                 new_book=Book(new_title, new_author, bid)
                 self.books[index]=new_book
-                return new_book
+                return [book,new_book]
         return False
         
         
